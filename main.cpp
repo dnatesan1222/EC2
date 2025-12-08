@@ -6,6 +6,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <list>
 using namespace std;
 
 int main(){
@@ -22,11 +23,24 @@ int main(){
 		int r = stoi(rating);
 		ratings[movie].push_back(r);
 	}
-	cout << "Movie   \t\tRatings" << endl;
+	/* Milestone 1
 	for (auto it = ratings.begin(); it != ratings.end(); it++){
 		cout << "Movie: " << it->first << "\n\tRatings:  ";
 		for (const int &i : it->second)
 			cout << i << "  ";
 		cout << endl << endl;
+	} */
+	list<double> avg;
+	double total = 0;
+	double count = 0;
+	for (auto it = ratings.begin(); it != ratings.end(); it++){
+		for (const int &i : it->second){
+			total += i;
+			count += 1;
+		}
+		avg.push_back(total/count)
+		count = 0;
+		total = 0;
 	}
+
 }
