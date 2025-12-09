@@ -14,7 +14,7 @@ int main(){
 	
 	ifstream fin("movies.txt");
 	if (!fin) {
-		cout << "Error: could not open bakerydata.txt" << endl;
+		cout << "Error: could not open movies.txt" << endl;
 		return 1;
 	}
 	string movie;
@@ -24,6 +24,7 @@ int main(){
 		ratings[movie].push_back(r);
 	}
 	//Milestone 1
+	cout << "\n*** Milestone 1: Movies with All Ratings ***" << endl;
 	for (auto it = ratings.begin(); it != ratings.end(); it++){
 		cout << "Movie: " << it->first << "\n\tRatings:  ";
 		for (const int &i : it->second)
@@ -32,6 +33,7 @@ int main(){
 	}
 
 	//Milestone 2
+	cout << "\n\n*** Milestone 2: Movies with All Ratings and their Averages ***" << endl;
 	list<double> avg;
 	int mov_total = 0;
 	double total = 0;
@@ -52,6 +54,7 @@ int main(){
 	cout << "\nTotal number of movies: " << mov_total << endl << endl;
 
 	//Milestone 3
+	cout << "\n\n*** Milestone 3: Best Rated Movie(s) ***" << endl;
 	list<string> best_rated;
 	double highest = 0;
 	for (auto it = avg.begin(); it != avg.end(); ++it){
