@@ -23,13 +23,14 @@ int main(){
 		int r = stoi(rating);
 		ratings[movie].push_back(r);
 	}
-	/* Milestone 1
+	//Milestone 1
 	for (auto it = ratings.begin(); it != ratings.end(); it++){
 		cout << "Movie: " << it->first << "\n\tRatings:  ";
 		for (const int &i : it->second)
 			cout << i << "  ";
 		cout << endl << endl;
-	} */
+	}
+
 	//Milestone 2
 	list<double> avg;
 	int mov_total = 0;
@@ -50,31 +51,37 @@ int main(){
 	}
 	cout << "\nTotal number of movies: " << mov_total << endl << endl;
 
+	//Milestone 3
 	list<string> best_rated;
 	double highest = 0;
-	for (auto it = avg.begin(); it != avg.end(); ++it)
+	for (auto it = avg.begin(); it != avg.end(); ++it){
         if(*it > highest){
 			highest = *it;
 			best_rated.clear();
 			int i = 0;
-			for (auto it = ratings.begin(); it != ratings.end(); it++){
+			for (auto it2 = ratings.begin(); it2 != ratings.end(); it2++){
 				if (i == count){
-					best_rated.push_back(it->first)
+					best_rated.push_back(it2->first);
 					break;
 				}
-		}
+				i += 1;
+			}
+		} 
 		else if (*it == highest){
 			int i = 0;
-			for (auto it = ratings.begin(); it != ratings.end(); it++){
+			for (auto it2 = ratings.begin(); it2 != ratings.end(); it2++){
 				if (i == count){
-					best_rated.push_back(it->first)
+					best_rated.push_back(it2->first);
 					break;
 				}
+				i += 1;
 			}
 		}
-		//save the movie that the avg is highest in the list
 		count += 1;
 	}
 	cout << "Highest Average Rating: " << highest << endl;
 	cout << "Movie(s) with Rating " << highest << ":" << endl;
+	for (auto it = best_rated.begin(); it != best_rated.end(); it++)
+		cout << '\t' << *it << endl;
+	cout << endl;
 }
