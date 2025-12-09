@@ -53,10 +53,28 @@ int main(){
 	list<string> best_rated;
 	double highest = 0;
 	for (auto it = avg.begin(); it != avg.end(); ++it)
-        if(*it >= highest){
+        if(*it > highest){
 			highest = *it;
-
+			best_rated.clear();
+			int i = 0;
+			for (auto it = ratings.begin(); it != ratings.end(); it++){
+				if (i == count){
+					best_rated.push_back(it->first)
+					break;
+				}
+		}
+		else if (*it == highest){
+			int i = 0;
+			for (auto it = ratings.begin(); it != ratings.end(); it++){
+				if (i == count){
+					best_rated.push_back(it->first)
+					break;
+				}
+			}
 		}
 		//save the movie that the avg is highest in the list
+		count += 1;
 	}
+	cout << "Highest Average Rating: " << highest << endl;
+	cout << "Movie(s) with Rating " << highest << ":" << endl;
 }
