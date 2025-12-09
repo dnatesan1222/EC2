@@ -49,4 +49,14 @@ int main(){
 		mov_total += 1;
 	}
 	cout << "\nTotal number of movies: " << mov_total << endl << endl;
+
+	list<string> best_rated;
+	double highest = 0;
+	for (auto it = avg.begin(); it != avg.end(); ++it)
+        if(*it >= highest){
+			highest = *it;
+
+		}
+		//save the movie that the avg is highest in the list
+	}
 }
